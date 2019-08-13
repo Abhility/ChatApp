@@ -36,9 +36,11 @@ if (action.trim() != '') {
   socket.emit('user-joined', action);
   sendButton.addEventListener('click', e => {
     e.preventDefault();
-    addMessage(history, message.value, 'You', true);
-    socket.emit('chat-message', message.value, action);
-    message.value = '';
+    if (message.value.trim() != '') {
+      addMessage(history, message.value, 'You', true);
+      socket.emit('chat-message', message.value, action);
+      message.value = '';
+    }
   });
   socket.on('chat-message', (msg, name) => {
     addMessage(history, msg, name, false);

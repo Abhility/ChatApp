@@ -3,9 +3,9 @@ const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 let users = {};
-app.use(express.static(__dirname + '/client'));
+app.use(express.static(__dirname + '/Client'));
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/client/index.html');
+  res.sendFile(__dirname + '/Client/index.html');
 });
 
 io.on('connection', socket => {

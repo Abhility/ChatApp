@@ -1,23 +1,44 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(rgb(126, 169, 197), rgb(46, 105, 116));
+  background: rgb(126, 169, 197);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: auto;
 }
+h2 {
+  text-align: center;
+  font-weight: bold;
+}
+
 .chatArea {
   display: flex;
-  min-height: 100vh;
+  height: 90%;
+  min-width: 500px;
   flex-direction: column;
   width: 50%;
-  margin: 0 auto;
   background: white;
   opacity: 0.7;
   font-size: 1.5rem;
   font-family: monospace;
   justify-content: space-between;
 }
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(20, 78, 117);
+  border-radius: 10px;
+}
+
 .history {
   height: 80%;
   flex-grow: 1;
+  overflow: auto;
 }
 .chatmessage {
   background: #000;
@@ -29,7 +50,6 @@ body {
 .otheruser {
   color: #fff;
   width: 50%;
-  font-style: italic;
   margin: 3px;
   padding: 10px;
   border-radius: 10px;
@@ -53,6 +73,7 @@ body {
   display: flex;
   width: 100%;
   padding: 0;
+  position: sticky;
 }
 #message {
   flex-basis: 80%;
@@ -67,4 +88,16 @@ body {
   outline: none;
   color: #fff;
   font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 0.8rem;
+  }
+  .chatArea {
+    min-width: 90%;
+  }
+  #chat {
+    flex-direction: column;
+  }
 }
